@@ -36,7 +36,7 @@
   }
 
   .section-title {
-    @apply font-display text-4xl md:text-5xl tracking-wide uppercase text-white;
+    @apply font-display text-3xl sm:text-4xl md:text-5xl tracking-wide uppercase text-white leading-tight;
   }
 
   .card-dark {
@@ -82,14 +82,17 @@
 
 @media (max-width: 768px) {
   .koi-backdrop {
-    background-size:
-      auto,
-      85vw auto,
-      85vw auto;
+    background-image:
+      linear-gradient(180deg, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.82) 30%, rgba(5,5,7,0.82) 70%, rgba(5,5,7,0.95) 100%),
+      url('/images/koi-portrait.png');
     background-position:
       center,
-      left -25vw top 25%,
-      right -25vw top 75%;
+      right -25vw top 30%;
+    background-size:
+      auto,
+      130vw auto;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: scroll, scroll;
   }
 }
 

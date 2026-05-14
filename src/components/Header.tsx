@@ -15,7 +15,7 @@ const NAV = [
 export function Header() {
   return (
     <header className="absolute top-0 inset-x-0 z-30">
-      <div className="container-pad flex items-center justify-between pt-6">
+      <div className="container-pad flex items-center justify-between gap-3 pt-5 sm:pt-6">
         <Logo />
 
         <nav className="hidden lg:flex items-center gap-7">
@@ -36,7 +36,7 @@ export function Header() {
           ))}
         </nav>
 
-        <a href="#book" className="btn-koi">
+        <a href="#book" className="btn-koi !px-3 sm:!px-6 !py-2.5 sm:!py-3.5 !text-[11px] sm:!text-[13px] whitespace-nowrap">
           Book Appointment
         </a>
       </div>

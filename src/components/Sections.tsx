@@ -23,23 +23,26 @@ const HERO_CAR = '/images/hero-civic-white.png';
 
 export function Hero() {
   return (
-    <section className="relative pt-28 pb-20 overflow-hidden hero-grad">
+    <section className="relative pt-24 sm:pt-28 pb-12 sm:pb-20 overflow-hidden hero-grad min-h-[680px] sm:min-h-0">
       <div
-        className="absolute inset-y-0 right-[-5%] w-[68%] bg-no-repeat bg-cover bg-center opacity-95"
+        className="absolute inset-y-0 right-[-10%] sm:right-[-5%] w-[120%] sm:w-[68%] bg-no-repeat bg-cover bg-center opacity-60 sm:opacity-95"
         style={{
           backgroundImage: `url('${HERO_CAR}')`,
           maskImage:
-            'linear-gradient(90deg, transparent 0%, #000 18%, #000 100%)',
+            'linear-gradient(90deg, transparent 0%, #000 35%, #000 100%)',
           WebkitMaskImage:
-            'linear-gradient(90deg, transparent 0%, #000 18%, #000 100%)',
+            'linear-gradient(90deg, transparent 0%, #000 35%, #000 100%)',
         }}
         aria-hidden
       />
-      <div className="absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-black/95 via-black/60 to-transparent" aria-hidden />
-      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-ink-950 to-transparent" aria-hidden />
+      <div
+        className="absolute inset-0 sm:inset-y-0 sm:left-0 sm:w-[55%] bg-gradient-to-b sm:bg-gradient-to-r from-black/80 via-black/55 to-black/20 sm:from-black/95 sm:via-black/60 sm:to-transparent"
+        aria-hidden
+      />
+      <div className="absolute bottom-0 inset-x-0 h-32 sm:h-40 bg-gradient-to-t from-ink-950 to-transparent" aria-hidden />
 
       <div className="container-pad relative z-10">
-        <h1 className="font-display text-white text-[64px] md:text-[80px] leading-[0.95] tracking-wide max-w-[760px]">
+        <h1 className="font-display text-white text-[40px] sm:text-[56px] md:text-[68px] lg:text-[80px] leading-[0.95] tracking-wide max-w-[760px]">
           PRECISION ALIGNMENT.
           <br />
           PERFORMANCE FITMENT.
@@ -47,14 +50,14 @@ export function Hero() {
           <span className="text-electric-400">BUILT FOR NJ.</span>
         </h1>
 
-        <p className="mt-6 max-w-[460px] text-white/65 text-[14px] leading-relaxed">
+        <p className="mt-5 sm:mt-6 max-w-[460px] text-white/70 text-[13px] sm:text-[14px] leading-relaxed">
           Koiwerks is Linden, NJ&apos;s destination for tires, alignments,
           coilovers, fender rolling, wheel fitment, suspension work, and
           maintenance for drivers who care how their car looks, feels, and
           performs.
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-3 max-w-md sm:max-w-none">
           <a href="#book" className="btn-koi">
             Book Alignment / Service
           </a>
@@ -79,15 +82,24 @@ const STRIP = [
 export function FeatureStrip() {
   return (
     <section className="border-y border-white/5 bg-ink-900/85 backdrop-blur-sm">
-      <div className="container-pad grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x divide-white/5">
-        {STRIP.map(({ Icon, label, sub }) => (
-          <div key={label} className="flex items-center gap-3 px-5 py-5 first:pl-0">
-            <Icon className="w-6 h-6 text-koi-500" />
-            <div className="leading-tight">
-              <div className="text-[12px] font-semibold tracking-[0.14em] text-white uppercase">
+      <div className="container-pad grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+        {STRIP.map(({ Icon, label, sub }, i) => (
+          <div
+            key={label}
+            className={`flex items-center gap-3 px-3 sm:px-5 py-4 sm:py-5 border-white/5
+              ${i % 2 === 1 ? 'border-l' : ''}
+              sm:border-l sm:first:border-l-0
+              ${i >= 2 ? 'border-t sm:border-t-0' : ''}
+              ${i >= 3 ? 'sm:border-t lg:border-t-0' : ''}
+              ${i % 3 === 0 ? 'sm:border-l-0 lg:border-l' : ''}
+              lg:first:border-l-0`}
+          >
+            <Icon className="w-6 h-6 text-koi-500 shrink-0" />
+            <div className="leading-tight min-w-0">
+              <div className="text-[11px] sm:text-[12px] font-semibold tracking-[0.14em] text-white uppercase truncate">
                 {label}
               </div>
-              <div className="text-[11px] text-white/55">{sub}</div>
+              <div className="text-[10px] sm:text-[11px] text-white/55 truncate">{sub}</div>
             </div>
           </div>
         ))}
@@ -131,9 +143,9 @@ const SERVICES = [
 
 export function WhatWeDo() {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-20">
       <div className="container-pad">
-        <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-8 sm:mb-10">
           <div>
             <h2 className="section-title">What We Do</h2>
             <p className="text-white/60 text-sm mt-2">
@@ -206,7 +218,7 @@ const WHY = [
 export function WhyUs() {
   return (
     <section className="relative overflow-hidden">
-      <div className="container-pad relative grid lg:grid-cols-[1fr_2fr] gap-10 py-16">
+      <div className="container-pad relative grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-10 py-12 sm:py-16">
         <div>
           <h2 className="section-title leading-tight">
             Built For Cars
@@ -270,7 +282,7 @@ const PACKAGES = [
 
 export function Packages() {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-20">
       <div className="container-pad">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
           <div>
@@ -327,7 +339,7 @@ const GALLERY = [
 
 export function Gallery() {
   return (
-    <section className="pb-20">
+    <section className="pb-12 sm:pb-20">
       <div className="container-pad">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
           <div>
@@ -378,7 +390,7 @@ const REVIEWS = [
 
 export function Testimonials() {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-20">
       <div className="container-pad">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
           <div>
@@ -387,7 +399,7 @@ export function Testimonials() {
               See what our customers are saying.
             </p>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center flex-wrap gap-3 sm:gap-5">
             <div className="flex items-center gap-2">
               <span className="text-white font-semibold">4.9</span>
               <div className="flex text-yellow-400 gap-0.5">
@@ -431,7 +443,7 @@ export function Visit() {
   return (
     <section className="border-t border-white/5">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr_1fr]">
-        <div className="p-10 lg:p-12">
+        <div className="p-6 sm:p-8 lg:p-12">
           <h2 className="section-title">Visit Us</h2>
           <ul className="mt-6 space-y-4 text-white/80 text-[14px]">
             <li className="flex gap-3">
@@ -465,7 +477,7 @@ export function Visit() {
           aria-label="Open Koiwerks location in Google Maps"
         />
 
-        <div className="relative p-10 lg:p-12 overflow-hidden">
+        <div className="relative p-6 sm:p-8 lg:p-12 overflow-hidden">
           <div className="relative">
             <h2 className="section-title leading-tight">
               Ready To Get Your
@@ -494,7 +506,7 @@ export function Visit() {
 export function Footer() {
   return (
     <footer className="bg-ink-950 border-t border-white/5">
-      <div className="container-pad py-14 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-[1.4fr_1fr_1fr_1.4fr] gap-10">
+      <div className="container-pad py-10 sm:py-14 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-[1.4fr_1fr_1fr_1.4fr] gap-8 sm:gap-10">
         <div>
           <Logo small />
           <p className="text-white/45 text-[12px] mt-4 leading-relaxed">
