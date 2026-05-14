@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply bg-ink-950 text-white antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    background: #050507;
+    margin: 0;
+  }
+}
+
+@layer components {
+  .container-pad {
+    @apply max-w-[1200px] mx-auto px-6;
+  }
+
+  .btn-koi {
+    @apply inline-flex items-center justify-center gap-2 bg-koi-500 hover:bg-koi-600 transition-colors text-white font-semibold uppercase tracking-wider text-[13px] px-6 py-3.5;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border border-white/25 hover:border-white/60 transition-colors text-white font-semibold uppercase tracking-wider text-[13px] px-6 py-3.5;
+  }
+
+  .nav-link {
+    @apply text-[12px] uppercase tracking-[0.18em] font-medium text-white/80 hover:text-white transition-colors;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl tracking-wide uppercase text-white;
+  }
+
+  .card-dark {
+    @apply bg-ink-850 border border-white/5;
+  }
+}
+
+.hero-grad {
+  background:
+    radial-gradient(120% 80% at 75% 40%, rgba(255, 45, 122, 0.18) 0%, rgba(0,0,0,0) 55%),
+    radial-gradient(80% 80% at 50% 100%, rgba(30, 144, 255, 0.08) 0%, rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, #0A0A0D 0%, #07070A 100%);
+}
+
+.koi-bg {
+  background: transparent;
+}
+
+.honeycomb {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+.koi-backdrop {
+  position: relative;
+  background-color: #050507;
+  background-image:
+    linear-gradient(180deg, rgba(5,5,7,0.88) 0%, rgba(5,5,7,0.72) 30%, rgba(5,5,7,0.72) 70%, rgba(5,5,7,0.88) 100%),
+    url('/images/koi-portrait.png'),
+    url('/images/koi-tall.png');
+  background-position:
+    center,
+    left -6vw top 30%,
+    right -6vw top 70%;
+  background-size:
+    auto,
+    42vw auto,
+    42vw auto;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed, fixed, fixed;
+}
+
+@media (max-width: 768px) {
+  .koi-backdrop {
+    background-size:
+      auto,
+      85vw auto,
+      85vw auto;
+    background-position:
+      center,
+      left -25vw top 25%,
+      right -25vw top 75%;
+  }
+}
+
+.map-bg {
+  background-color: #0E1420;
+  background-image:
+    linear-gradient(rgba(120, 140, 180, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 140, 180, 0.10) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px;
+}
